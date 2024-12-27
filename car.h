@@ -18,9 +18,9 @@ class car {
   public:
     car(int location_x, int location_y, int squareSize_width,
         int squareSize_height, int color, int direction, int num);
-    ~car();
+    // ~car();
     car(const car &copy);
-    car operator=(const car &copy);
+    // car operator=(const car &copy);
 
     int getLocation_x();
     int getLocation_y();

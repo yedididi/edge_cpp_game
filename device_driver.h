@@ -3,7 +3,6 @@
 #include "macro.h"
 #include "malloc.h"
 #include "lcd.h"
-#include "init.h"
 
 #ifdef __cplusplus
  extern "C" {
@@ -35,8 +34,8 @@
 
 #define GAME_OVER		(1)
 
-static int score;
-static unsigned short colors[] = {RED, YELLOW, GREEN, BLUE, WHITE, BLACK};
+// int score;
+// unsigned short colors[] = {RED, YELLOW, GREEN, BLUE, WHITE, BLACK};
 
 // Led.c
 

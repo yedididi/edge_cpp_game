@@ -1,4 +1,7 @@
 #include "device_driver.h"
+#include "frog.h"
+
+unsigned short colors_f[] = {RED, YELLOW, GREEN, BLUE, WHITE, BLACK};
 
 frog::frog(int location_x, int location_y, int squareSize_width, int squareSize_height, int color, int direction)
 {
@@ -10,9 +13,9 @@ frog::frog(int location_x, int location_y, int squareSize_width, int squareSize_
     this->direction = direction;
 }
 
-frog::~frog()
-{
-}
+// frog::~frog()
+// {
+// }
 
 frog::frog(const frog &copy)
 {
@@ -27,20 +30,20 @@ frog::frog(const frog &copy)
     }
 }
 
-frog frog::operator=(const frog &copy)
-{
-    if (&copy != this)
-    {
-        this->location_x = copy.location_x;
-        this->location_y = copy.location_y;
-        this->squareSize_width = copy.squareSize_width;
-        this->squareSize_height = copy.squareSize_height;
-        this->color = copy.color;
-        this->direction = copy.direction;
-    }
-    return (*this);
+// frog frog::operator=(const frog &copy)
+// {
+//     if (&copy != this)
+//     {
+//         this->location_x = copy.location_x;
+//         this->location_y = copy.location_y;
+//         this->squareSize_width = copy.squareSize_width;
+//         this->squareSize_height = copy.squareSize_height;
+//         this->color = copy.color;
+//         this->direction = copy.direction;
+//     }
+//     return (*this);
     
-}
+// }
 
 int frog::getLocation_x()
 {
@@ -81,7 +84,7 @@ void frog::setDirection(int direction)
 
 void frog::Draw_Object()
 {
-    Lcd_Draw_Box(this->location_x, this->location_y, this->squareSize_width, this->squareSize_height, colors[this->color]);
+    Lcd_Draw_Box(this->location_x, this->location_y, this->squareSize_width, this->squareSize_height, colors_f[this->color]);
 }
 
  void frog::k0(void)
@@ -103,14 +106,6 @@ void frog::Draw_Object()
 {
 	if(this->location_x + this->squareSize_width < X_MAX) this->location_x += FROG_STEP;
 }
-
-
-// void frog::Frog_Move(int k)
-// {
-//     // UP(0), DOWN(1), LEFT(2), RIGHT(3)
-// 	void (frog::*key_func[])(void) = {k0, k1, k2, k3};
-// 	if(k <= 3) key_func[k]();
-// }
 
 void frog::Frog_Move(int k)
 {

@@ -2,6 +2,8 @@
 #include "device_driver.h"
 #include "lcd.h"
 
+unsigned short colors_c[] = {RED, YELLOW, GREEN, BLUE, WHITE, BLACK};
+
 car ::car(int location_x, int location_y, int squareSize_width, int squareSize_height, int color, int direction, int num)
 {
     this ->location_x = location_x;
@@ -13,10 +15,10 @@ car ::car(int location_x, int location_y, int squareSize_width, int squareSize_h
     this ->num = num;
 }
        
-car ::~car()
-{
+// car ::~car()
+// {
 
-}
+// }
        
 car ::car(const car &copy) // 복사
 {
@@ -34,20 +36,20 @@ car ::car(const car &copy) // 복사
 }   
 
 
-car car::operator=(const car &copy)
-{
-    if(&copy != this){
+// car car::operator=(const car &copy)
+// {
+//     if(&copy != this){
         
-    this -> location_x = copy.location_x;
-    this -> location_y = copy.location_y;
-    this -> squareSize_height = copy.squareSize_height;
-    this -> squareSize_width = copy.squareSize_width;
-    this -> color = copy.color;
-    this -> direction = copy.direction;
-    this -> num = copy.num;
-    }
-    return (*this);
-}
+//     this -> location_x = copy.location_x;
+//     this -> location_y = copy.location_y;
+//     this -> squareSize_height = copy.squareSize_height;
+//     this -> squareSize_width = copy.squareSize_width;
+//     this -> color = copy.color;
+//     this -> direction = copy.direction;
+//     this -> num = copy.num;
+//     }
+//     return (*this);
+// }
 
 int car::getLocation_x()
 {
@@ -87,7 +89,7 @@ void car::setColor(int color)
 
 void car::Draw_Object() 
 {
-    Lcd_Draw_Box(this->location_x, this->location_y, this->squareSize_width, this->squareSize_height, colors[this->color]);
+    Lcd_Draw_Box(this->location_x, this->location_y, this->squareSize_width, this->squareSize_height, colors_c[this->color]);
 }
 
 void car::Car_Move(void) 
