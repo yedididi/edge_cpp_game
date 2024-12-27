@@ -1,10 +1,18 @@
-#ifndef INIT_CPP
-#define INIT_CPP
+// #ifndef INIT_CPP
+// #define INIT_CPP
 
-#include "device_driver.h"
+// #include "device_driver.h"
 
-static void Sys_Init(void);
-static void Game_Init(void);
+// #ifdef __cplusplus
+//  extern "C" {
+// #endif 
 
-#endif
+// void Sys_Init(void);
+// void game_Init(frog player, car *cars[5]);
+
+// #ifdef __cplusplus
+// }
+// #endif
+
+// #endif
 

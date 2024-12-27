@@ -3,6 +3,7 @@
 #include "macro.h"
 #include "malloc.h"
 #include "lcd.h"
+#include "init.h"
 
 #ifdef __cplusplus
  extern "C" {

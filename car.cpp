@@ -69,14 +69,20 @@ int car::getSquareSize_height()
     return (this->squareSize_height);
 }
 
-int car::getSquareSize_color()
+int car::getColor()
 {
     return (this->color);
 }
 
-int car::getSquareSize_direction()
+int car::getDirection()
 {
     return (this->direction);
+}
+
+
+void car::setColor(int color)
+{
+    this->color = color;
 }
 
 void car::Draw_Object() 

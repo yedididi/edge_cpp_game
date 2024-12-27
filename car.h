@@ -1,6 +1,10 @@
 #ifndef CAR_H
 #define CAR_H
 
+#ifdef __cplusplus
+ extern "C" {
+#endif 
+
 class car {
   private:
     int location_x;
@@ -22,11 +26,17 @@ class car {
     int getLocation_y();
     int getSquareSize_width();
     int getSquareSize_height();
-    int getSquareSize_color();
-    int getSquareSize_direction();
+    int getColor();
+    int getDirection();
+
+	void setColor(int color);
 
     void Draw_Object(void);
     void Car_Move(void);
   };
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

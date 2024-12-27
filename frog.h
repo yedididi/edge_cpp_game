@@ -1,6 +1,10 @@
 #ifndef FROG_H
 #define FROG_H
 
+#ifdef __cplusplus
+ extern "C" {
+#endif 
+
 class frog
 {   
     private:
@@ -21,9 +25,23 @@ class frog
         int getLocation_y();
         int getSquareSize_width();
         int getSquareSize_height();
-        int getSquareSize_color();
-        int getSquareSize_direction();
+        int getColor();
+        int getDirection();
 
+        void setColor(int color);
+        void setDirection(int direction);
+
+        void Draw_Object();
+        void Frog_Move(int k);
+
+        void k0(void);
+        void k1(void);
+        void k2(void);
+        void k3(void);
 };
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
