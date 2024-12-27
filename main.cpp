@@ -88,11 +88,10 @@ extern "C" void Main()
 		car *cars[5];
         game_Init(player, cars);
 		TIM4_Repeat_Interrupt_Enable(1, TIMER_PERIOD*10);
-
 		for(;;)
 		{
 			int game_over = 0;
-
+			Uart_Printf("playing\n");
 			if (Jog_key_in)
 			{
 				Uart_Printf("KEY\n");
@@ -107,18 +106,31 @@ extern "C" void Main()
 
 			if(TIM4_expired) 
 			{
-				for (int i = 0; i < 5; i++)
-				{
-					cars[i]->setColor(BACK_COLOR);
-					cars[i]->Draw_Object();
-					cars[i]->Car_Move();
-					game_over = Check_Collision(player, *cars[0]);
-					cars[i]->setColor(CAR_COLOR);
-					cars[i]->Draw_Object();
-					TIM4_expired = 0;
-				}
-			}
+				Uart_Printf("TIM4 OK\n");
+				// for (int i = 0; i < 5; i++)
+				// {
+				// 	if (i == 0)
+				// 	{
+				int i = 0;
+						cars[i]->setColor(BACK_COLOR);
+						// cars[i]->Draw_Object();
+						Lcd_Draw_Box(cars[i]->getLocation_x(), cars[i]->getLocation_y(), cars[i]->getSquareSize_width(), cars[i]->getSquareSize_height(), colors[cars[i]->getColor()]);
+						cars[i]->Car_Move();
+						Uart_Printf("2\n");
+						game_over = Check_Collision(player, *cars[i]);
+						Uart_Printf("3\n");
+						cars[i]->setColor(CAR_COLOR);
+						Uart_Printf("TIM end1\n");
+						// cars[i]->Draw_Object();
+						Lcd_Draw_Box(cars[i]->getLocation_x(), cars[i]->getLocation_y(), cars[i]->getSquareSize_width(), cars[i]->getSquareSize_height(), colors[cars[i]->getColor()]);
 
+						Uart_Printf("TIM end2\n");
+						TIM4_expired = 0;
+						Uart_Printf("TIM end3\n");
+				// 	}
+				// }
+			}
+			Uart_Printf("1\n");
 			if(game_over)
 			{
 				TIM4_Repeat_Interrupt_Enable(0, 0);

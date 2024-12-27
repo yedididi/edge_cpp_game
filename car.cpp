@@ -1,6 +1,5 @@
 #include "car.h"
 #include "device_driver.h"
-#include "lcd.h"
 
 unsigned short colors_c[] = {RED, YELLOW, GREEN, BLUE, WHITE, BLACK};
 
@@ -87,9 +86,11 @@ void car::setColor(int color)
     this->color = color;
 }
 
-void car::Draw_Object() 
+void car::Draw_Object(void)
 {
+    Uart_Printf("inside DO1\n");
     Lcd_Draw_Box(this->location_x, this->location_y, this->squareSize_width, this->squareSize_height, colors_c[this->color]);
+    Uart_Printf("inside DO2\n");
 }
 
 void car::Car_Move(void) 

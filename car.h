@@ -29,7 +29,7 @@ class car {
     int getColor();
     int getDirection();
 
-	void setColor(int color);
+	  void setColor(int color);
 
     void Draw_Object(void);
     void Car_Move(void);
